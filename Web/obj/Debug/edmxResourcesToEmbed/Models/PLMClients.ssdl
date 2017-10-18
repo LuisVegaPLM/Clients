@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="ClientId" />
+    </Key>
+    <Property Name="ClientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="SecondLastName" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Birthday" Type="smalldatetime" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+    <Property Name="CompleteName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="100" />
+    <Property Name="CountryId" Type="tinyint" />
+    <Property Name="StateId" Type="int" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Old_Id" Type="int" />
+    <Property Name="Age" Type="char" MaxLength="2" />
+    <Property Name="ZipCode" Type="varchar" MaxLength="10" />
+    <Property Name="SuburbId" Type="int" />
+    <Property Name="ZipCodeId" Type="int" />
+    <Property Name="LocationId" Type="int" />
+    <Property Name="Mobile" Type="varchar" MaxLength="50" />
+    <Property Name="NickName" Type="varchar" MaxLength="100" />
+    <Property Name="CURP" Type="varchar" MaxLength="50" />
+    <Property Name="BirthCountryId" Type="tinyint" />
+    <Property Name="BirthStateId" Type="int" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="tinyint" Nullable="false" />
+    <Property Name="CountryName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CountryCode" Type="tinyint" />
+    <Property Name="ID" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CountryLada" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="ProfessionClients">
+    <Key>
+      <PropertyRef Name="ClientId" />
+      <PropertyRef Name="ProfessionId" />
+    </Key>
+    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="ProfessionId" Type="smallint" Nullable="false" />
+    <Property Name="OtherProfession" Type="varchar" MaxLength="100" />
+    <Property Name="ProfessionalLicense" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Professions">
+    <Key>
+      <PropertyRef Name="ProfessionId" />
+    </Key>
+    <Property Name="ProfessionId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProfessionName" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="ReqProfessionalLicense" Type="bit" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Old_Id" Type="int" />
+    <Property Name="ParentId" Type="smallint" />
+    <Property Name="EnglishName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Specialities">
+    <Key>
+      <PropertyRef Name="SpecialityId" />
+    </Key>
+    <Property Name="SpecialityId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SpecialityName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ShortName" Type="varchar" MaxLength="5" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Old_Id" Type="int" />
+    <Property Name="ParentId" Type="smallint" />
+    <Property Name="EnglishName" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="SpecialityClients">
+    <Key>
+      <PropertyRef Name="ClientId" />
+      <PropertyRef Name="SpecialityId" />
+    </Key>
+    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="SpecialityId" Type="smallint" Nullable="false" />
+    <Property Name="OtherSpeciality" Type="varchar" MaxLength="100" />
+    <Property Name="ProfessionalLicense" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="States">
+    <Key>
+      <PropertyRef Name="StateId" />
+    </Key>
+    <Property Name="StateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryId" Type="tinyint" Nullable="false" />
+    <Property Name="StateName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ShortName" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Specialit__Paren__71D2B368">
+    <End Role="Specialities" Type="Self.Specialities" Multiplicity="0..1" />
+    <End Role="Specialities1" Type="Self.Specialities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specialities">
+        <PropertyRef Name="SpecialityId" />
+      </Principal>
+      <Dependent Role="Specialities1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Professions_ParentId_FK">
+    <End Role="Professions" Type="Self.Professions" Multiplicity="0..1" />
+    <End Role="Professions1" Type="Self.Professions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professions">
+        <PropertyRef Name="ProfessionId" />
+      </Principal>
+      <Dependent Role="Professions1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_182">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+    <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="Clients">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_183">
+    <End Role="States" Type="Self.States" Multiplicity="0..1" />
+    <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="Clients">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_2">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+    <End Role="SpecialityClients" Type="Self.SpecialityClients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="ClientId" />
+      </Principal>
+      <Dependent Role="SpecialityClients">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_26">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+    <End Role="ProfessionClients" Type="Self.ProfessionClients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="ClientId" />
+      </Principal>
+      <Dependent Role="ProfessionClients">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_27">
+    <End Role="Professions" Type="Self.Professions" Multiplicity="1" />
+    <End Role="ProfessionClients" Type="Self.ProfessionClients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professions">
+        <PropertyRef Name="ProfessionId" />
+      </Principal>
+      <Dependent Role="ProfessionClients">
+        <PropertyRef Name="ProfessionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_3">
+    <End Role="Specialities" Type="Self.Specialities" Multiplicity="1" />
+    <End Role="SpecialityClients" Type="Self.SpecialityClients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specialities">
+        <PropertyRef Name="SpecialityId" />
+      </Principal>
+      <Dependent Role="SpecialityClients">
+        <PropertyRef Name="SpecialityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_8">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+    <End Role="States" Type="Self.States" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="States">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_BC182">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+    <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="Clients">
+        <PropertyRef Name="BirthCountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_BS183">
+    <End Role="States" Type="Self.States" Multiplicity="0..1" />
+    <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="Clients">
+        <PropertyRef Name="BirthStateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProfessionClients" EntityType="Self.ProfessionClients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Professions" EntityType="Self.Professions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Specialities" EntityType="Self.Specialities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SpecialityClients" EntityType="Self.SpecialityClients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Specialit__Paren__71D2B368" Association="Self.FK__Specialit__Paren__71D2B368">
+      <End Role="Specialities" EntitySet="Specialities" />
+      <End Role="Specialities1" EntitySet="Specialities" />
+    </AssociationSet>
+    <AssociationSet Name="Professions_ParentId_FK" Association="Self.Professions_ParentId_FK">
+      <End Role="Professions" EntitySet="Professions" />
+      <End Role="Professions1" EntitySet="Professions" />
+    </AssociationSet>
+    <AssociationSet Name="R_182" Association="Self.R_182">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Clients" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="R_183" Association="Self.R_183">
+      <End Role="States" EntitySet="States" />
+      <End Role="Clients" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="R_2" Association="Self.R_2">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="SpecialityClients" EntitySet="SpecialityClients" />
+    </AssociationSet>
+    <AssociationSet Name="R_26" Association="Self.R_26">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="ProfessionClients" EntitySet="ProfessionClients" />
+    </AssociationSet>
+    <AssociationSet Name="R_27" Association="Self.R_27">
+      <End Role="Professions" EntitySet="Professions" />
+      <End Role="ProfessionClients" EntitySet="ProfessionClients" />
+    </AssociationSet>
+    <AssociationSet Name="R_3" Association="Self.R_3">
+      <End Role="Specialities" EntitySet="Specialities" />
+      <End Role="SpecialityClients" EntitySet="SpecialityClients" />
+    </AssociationSet>
+    <AssociationSet Name="R_8" Association="Self.R_8">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="States" EntitySet="States" />
+    </AssociationSet>
+    <AssociationSet Name="R_BC182" Association="Self.R_BC182">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Clients" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="R_BS183" Association="Self.R_BS183">
+      <End Role="States" EntitySet="States" />
+      <End Role="Clients" EntitySet="Clients" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

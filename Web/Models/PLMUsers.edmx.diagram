@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6a863685f3894e5fb4c1ca751cb6feb4" Name="Diagram1" ZoomLevel="80">
+        <EntityTypeShape EntityType="Model.ActivityLogs" Width="1.5" PointX="7.5" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ActivitySessions" Width="1.5" PointX="2.875" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Applications" Width="1.5" PointX="0.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ApplicationUsers" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Countries_Users" Width="1.5" PointX="0.5" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Roles" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Tables" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Users" Width="1.5" PointX="2.875" PointY="0.625" IsExpanded="true" />
+        <AssociationConnector Association="Model.FKAPPLICATION_AS" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FKUSER_AS" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.AppTableId_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ApplicationUsers_Applications" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ApplicationUsers_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ApplicationUsers_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Users_Countries" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.UserCountries" Width="1.5" PointX="0.5" PointY="0.625" />
+        <AssociationConnector Association="Model.Countries_UsersUserCountries" />
+        <AssociationConnector Association="Model.UsersUserCountries" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

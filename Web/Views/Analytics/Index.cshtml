@@ -1,0 +1,205 @@
+﻿@model IEnumerable<Web.Models.GetClients>
+@using Web.Models
+@{
+    ViewBag.Title = "Analytics";
+}
+
+<script>
+    $(document).ready(function () {
+        $('#char').keyup(function () {
+            var valThis = $(this).val().toLowerCase();
+            $('.searchlab').each(function () {
+                var text = $(this).text().toLowerCase();
+                (text.indexOf(valThis) == 0) ? $(this).show() : $(this).hide();
+            });
+        });
+    });
+</script>
+<style>
+    .hidden {
+        display: none;
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+        $(".true").click(function () {
+            swal({ title: "¡Cambios guardados!", type: "success", text: "", timer: 1000, });
+        });
+    });
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $("#clickshowRs").click(function () {
+            $("#hideRs").removeClass("hidden");
+            $("#showRs").addClass("hidden");
+        })
+        $("#clickhideRs").click(function () {
+            $("#showRs").removeClass("hidden");
+            $("#hideRs").addClass("hidden");
+            swal({ title: "¡Cambios guardados!", type: "success", text: "", timer: 1000, });
+        })
+    })
+</script>
+<script>
+    $(document).ready(function () {
+        $("#clickshowSs").click(function () {
+            $("#hideSs").removeClass("hidden");
+            $("#showSs").addClass("hidden");
+        })
+        $("#clickhideSs").click(function () {
+            $("#showSs").addClass("hidden");
+            $("#hideSs").addClass("hidden");
+            $("#resultSs").removeClass("hidden");
+            swal({ title: "¡Cambios guardados!", type: "success", text: "", timer: 1000, });
+        })
+    })
+</script>
+<br />
+<div class="row">
+    <div class="headergroup">
+        <div class="title">
+            <br />
+            <div class="title-word" style="font-weight:normal; text-transform:none">Analytics <span style="color:#de5347"></span></div>
+            <br />
+        </div>
+    </div>
+    <br />
+    <br />
+</div>
+
+<div class="container">
+    <div class="qa-message-list col-md-12 col-xs-12" id="wallmessages">
+        <div class="message-item" id="m16">
+            <div class="message-inner">
+                <div class="message-head clearfix">
+                    <div class="avatar pull-left"></div>
+                    <div class="user-detail">
+                        <div class="post-meta">
+                            <div class="asker-meta">
+                                <div class="title_new" align="left">
+                                    <div class="title-word_new">
+                                        <p>
+                                            <span class="qa-message-when-data" style="font-size:18px; text-transform:none; font-weight:normal;">Adjuntar Archivo Por ID: <span style="color:white">--</span> 
+                                            
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="title_new">
+                                    <form enctype="multipart/form-data" method="post" id="SendCSVFile">
+                                        <div class="input-group">
+                                            <label class="input-group-btn">
+                                                <span class="btn btn-primary">
+                                                    <span class="glyphicon glyphiconr glyphicon glyphicon-file"></span>
+                                                    Browse&hellip;
+                                                </span>
+                                                <input id="uploadBtn" type="file" accept=".csv" name="file" style="display:none" onchange="addFile($(this))" />
+                                            </label>
+                                            <input type="text" class="form-control" readonly id="txtFileName">
+                                        </div>
+                                    </form>   
+                                </div>
+                                <br />
+                                <div class="title_new" align="left" id="Botones" style="display:none">
+
+                                    <span>&nbsp; &nbsp;</span>
+                                    <button class="btn btn-primary btn-sm" onclick="location.href='@Url.Action("Report", "Analytics", new { file = "Content" })';return false;">
+                                        <span class=" glyphicon glyphicon-saved">
+                                        </span>
+                                        <span>&nbsp; General</span>
+                                    </button>
+                                    <span>&nbsp; &nbsp;</span>
+                                    <span>&nbsp; &nbsp;</span>
+                                    <button class="btn btn-danger btn-sm" onclick="CanceladdHTMLFile($(this))">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                        <span>&nbsp; Cancelar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="qa-message-list col-md-12 col-xs-12" id="wallmessages">
+        <div class="message-item" id="m16">
+            <div class="message-inner">
+                <div class="message-head clearfix">
+                    <div class="avatar pull-left"></div>
+                    <div class="user-detail">
+                        <div class="post-meta">
+                            <div class="asker-meta">
+                                <div class="title_new" align="left">
+                                    <div class="title-word_new">
+                                        <p>
+                                            <span class="qa-message-when-data" style="font-size:18px; text-transform:none; font-weight:normal;">
+                                                Adjuntar Archivo Por CodeString: <span style="color:white">--</span>
+
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="title_new">
+                                    <form enctype="multipart/form-data" method="post" id="SendCSVFileCode">
+                                        <div class="input-group">
+                                            <label class="input-group-btn">
+                                                <span class="btn btn-primary">
+                                                    <span class="glyphicon glyphiconr glyphicon glyphicon-file"></span>
+                                                    Browse&hellip;
+                                                </span>
+                                                <input id="uploadBtn" type="file" accept=".csv" name="file" style="display:none" onchange="addFileCode($(this))" />
+                                            </label>
+                                            <input type="text" class="form-control" readonly id="txtFileNameCode">
+                                        </div>
+                                    </form>
+                                </div>
+                                <br />
+                                <div class="title_new" align="left" id="BotonesCode" style="display:none">
+
+                                    <span>&nbsp; &nbsp;</span>
+                                    <button class="btn btn-primary btn-sm" onclick="location.href='@Url.Action("Report", "Analytics", new { file = "Content" })';return false;">
+                                        <span class=" glyphicon glyphicon-saved">
+                                        </span>
+                                        <span>&nbsp; General</span>
+                                    </button>
+                                    <span>&nbsp; &nbsp;</span>
+                                    <span>&nbsp; &nbsp;</span>
+                                    <button class="btn btn-danger btn-sm" onclick="CanceladdHTMLFile($(this))">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                        <span>&nbsp; Cancelar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+
+
+
+
+

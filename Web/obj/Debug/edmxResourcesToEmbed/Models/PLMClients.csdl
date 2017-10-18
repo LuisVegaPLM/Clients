@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="ClientId" />
+    </Key>
+    <Property Name="ClientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SecondLastName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Birthday" Type="DateTime" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AddedDate" Type="DateTime" Nullable="false" />
+    <Property Name="LastUpdate" Type="DateTime" Nullable="false" />
+    <Property Name="CompleteName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CountryId" Type="Byte" />
+    <Property Name="StateId" Type="Int32" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Old_Id" Type="Int32" />
+    <Property Name="Age" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SuburbId" Type="Int32" />
+    <Property Name="ZipCodeId" Type="Int32" />
+    <Property Name="LocationId" Type="Int32" />
+    <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NickName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CURP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BirthCountryId" Type="Byte" />
+    <Property Name="BirthStateId" Type="Int32" />
+    <NavigationProperty Name="Countries" Relationship="Self.R_182" FromRole="Clients" ToRole="Countries" />
+    <NavigationProperty Name="States" Relationship="Self.R_183" FromRole="Clients" ToRole="States" />
+    <NavigationProperty Name="SpecialityClients" Relationship="Self.R_2" FromRole="Clients" ToRole="SpecialityClients" />
+    <NavigationProperty Name="ProfessionClients" Relationship="Self.R_26" FromRole="Clients" ToRole="ProfessionClients" />
+    <NavigationProperty Name="Countries1" Relationship="Self.R_BC182" FromRole="Clients" ToRole="Countries" />
+    <NavigationProperty Name="States1" Relationship="Self.R_BS183" FromRole="Clients" ToRole="States" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="Byte" Nullable="false" />
+    <Property Name="CountryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CountryCode" Type="Byte" />
+    <Property Name="ID" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CountryLada" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Clients" Relationship="Self.R_182" FromRole="Countries" ToRole="Clients" />
+    <NavigationProperty Name="Clients1" Relationship="Self.R_BC182" FromRole="Countries" ToRole="Clients" />
+    <NavigationProperty Name="States" Relationship="Self.R_8" FromRole="Countries" ToRole="States" />
+  </EntityType>
+  <EntityType Name="ProfessionClients">
+    <Key>
+      <PropertyRef Name="ClientId" />
+      <PropertyRef Name="ProfessionId" />
+    </Key>
+    <Property Name="ClientId" Type="Int32" Nullable="false" />
+    <Property Name="ProfessionId" Type="Int16" Nullable="false" />
+    <Property Name="OtherProfession" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ProfessionalLicense" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Clients" Relationship="Self.R_26" FromRole="ProfessionClients" ToRole="Clients" />
+    <NavigationProperty Name="Professions" Relationship="Self.R_27" FromRole="ProfessionClients" ToRole="Professions" />
+  </EntityType>
+  <EntityType Name="Professions">
+    <Key>
+      <PropertyRef Name="ProfessionId" />
+    </Key>
+    <Property Name="ProfessionId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProfessionName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ReqProfessionalLicense" Type="Boolean" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Old_Id" Type="Int32" />
+    <Property Name="ParentId" Type="Int16" />
+    <Property Name="EnglishName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ProfessionClients" Relationship="Self.R_27" FromRole="Professions" ToRole="ProfessionClients" />
+    <NavigationProperty Name="Professions1" Relationship="Self.Professions_ParentId_FK" FromRole="Professions" ToRole="Professions1" />
+    <NavigationProperty Name="Professions2" Relationship="Self.Professions_ParentId_FK" FromRole="Professions1" ToRole="Professions" />
+  </EntityType>
+  <EntityType Name="Specialities">
+    <Key>
+      <PropertyRef Name="SpecialityId" />
+    </Key>
+    <Property Name="SpecialityId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SpecialityName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ShortName" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Old_Id" Type="Int32" />
+    <Property Name="ParentId" Type="Int16" />
+    <Property Name="EnglishName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Specialities1" Relationship="Self.FK__Specialit__Paren__71D2B368" FromRole="Specialities" ToRole="Specialities1" />
+    <NavigationProperty Name="Specialities2" Relationship="Self.FK__Specialit__Paren__71D2B368" FromRole="Specialities1" ToRole="Specialities" />
+    <NavigationProperty Name="SpecialityClients" Relationship="Self.R_3" FromRole="Specialities" ToRole="SpecialityClients" />
+  </EntityType>
+  <EntityType Name="SpecialityClients">
+    <Key>
+      <PropertyRef Name="ClientId" />
+      <PropertyRef Name="SpecialityId" />
+    </Key>
+    <Property Name="ClientId" Type="Int32" Nullable="false" />
+    <Property Name="SpecialityId" Type="Int16" Nullable="false" />
+    <Property Name="OtherSpeciality" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ProfessionalLicense" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Clients" Relationship="Self.R_2" FromRole="SpecialityClients" ToRole="Clients" />
+    <NavigationProperty Name="Specialities" Relationship="Self.R_3" FromRole="SpecialityClients" ToRole="Specialities" />
+  </EntityType>
+  <EntityType Name="States">
+    <Key>
+      <PropertyRef Name="StateId" />
+    </Key>
+    <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryId" Type="Byte" Nullable="false" />
+    <Property Name="StateName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ShortName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Clients" Relationship="Self.R_183" FromRole="States" ToRole="Clients" />
+    <NavigationProperty Name="Clients1" Relationship="Self.R_BS183" FromRole="States" ToRole="Clients" />
+    <NavigationProperty Name="Countries" Relationship="Self.R_8" FromRole="States" ToRole="Countries" />
+  </EntityType>
+  <Association Name="R_182">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+    <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="Clients">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_183">
+    <End Role="States" Type="Self.States" Multiplicity="0..1" />
+    <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="Clients">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_2">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+    <End Role="SpecialityClients" Type="Self.SpecialityClients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="ClientId" />
+      </Principal>
+      <Dependent Role="SpecialityClients">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_26">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+    <End Role="ProfessionClients" Type="Self.ProfessionClients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="ClientId" />
+      </Principal>
+      <Dependent Role="ProfessionClients">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_BC182">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+    <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="Clients">
+        <PropertyRef Name="BirthCountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_BS183">
+    <End Role="States" Type="Self.States" Multiplicity="0..1" />
+    <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="Clients">
+        <PropertyRef Name="BirthStateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_8">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+    <End Role="States" Type="Self.States" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="States">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_27">
+    <End Role="Professions" Type="Self.Professions" Multiplicity="1" />
+    <End Role="ProfessionClients" Type="Self.ProfessionClients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professions">
+        <PropertyRef Name="ProfessionId" />
+      </Principal>
+      <Dependent Role="ProfessionClients">
+        <PropertyRef Name="ProfessionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Professions_ParentId_FK">
+    <End Role="Professions" Type="Self.Professions" Multiplicity="0..1" />
+    <End Role="Professions1" Type="Self.Professions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professions">
+        <PropertyRef Name="ProfessionId" />
+      </Principal>
+      <Dependent Role="Professions1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Specialit__Paren__71D2B368">
+    <End Role="Specialities" Type="Self.Specialities" Multiplicity="0..1" />
+    <End Role="Specialities1" Type="Self.Specialities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specialities">
+        <PropertyRef Name="SpecialityId" />
+      </Principal>
+      <Dependent Role="Specialities1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_3">
+    <End Role="Specialities" Type="Self.Specialities" Multiplicity="1" />
+    <End Role="SpecialityClients" Type="Self.SpecialityClients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specialities">
+        <PropertyRef Name="SpecialityId" />
+      </Principal>
+      <Dependent Role="SpecialityClients">
+        <PropertyRef Name="SpecialityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PLMClients_20160913Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clients" EntityType="Self.Clients" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" />
+    <EntitySet Name="ProfessionClients" EntityType="Self.ProfessionClients" />
+    <EntitySet Name="Professions" EntityType="Self.Professions" />
+    <EntitySet Name="Specialities" EntityType="Self.Specialities" />
+    <EntitySet Name="SpecialityClients" EntityType="Self.SpecialityClients" />
+    <EntitySet Name="States" EntityType="Self.States" />
+    <AssociationSet Name="R_182" Association="Self.R_182">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Clients" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="R_183" Association="Self.R_183">
+      <End Role="States" EntitySet="States" />
+      <End Role="Clients" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="R_2" Association="Self.R_2">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="SpecialityClients" EntitySet="SpecialityClients" />
+    </AssociationSet>
+    <AssociationSet Name="R_26" Association="Self.R_26">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="ProfessionClients" EntitySet="ProfessionClients" />
+    </AssociationSet>
+    <AssociationSet Name="R_BC182" Association="Self.R_BC182">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Clients" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="R_BS183" Association="Self.R_BS183">
+      <End Role="States" EntitySet="States" />
+      <End Role="Clients" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="R_8" Association="Self.R_8">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="States" EntitySet="States" />
+    </AssociationSet>
+    <AssociationSet Name="R_27" Association="Self.R_27">
+      <End Role="Professions" EntitySet="Professions" />
+      <End Role="ProfessionClients" EntitySet="ProfessionClients" />
+    </AssociationSet>
+    <AssociationSet Name="Professions_ParentId_FK" Association="Self.Professions_ParentId_FK">
+      <End Role="Professions" EntitySet="Professions" />
+      <End Role="Professions1" EntitySet="Professions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Specialit__Paren__71D2B368" Association="Self.FK__Specialit__Paren__71D2B368">
+      <End Role="Specialities" EntitySet="Specialities" />
+      <End Role="Specialities1" EntitySet="Specialities" />
+    </AssociationSet>
+    <AssociationSet Name="R_3" Association="Self.R_3">
+      <End Role="Specialities" EntitySet="Specialities" />
+      <End Role="SpecialityClients" EntitySet="SpecialityClients" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

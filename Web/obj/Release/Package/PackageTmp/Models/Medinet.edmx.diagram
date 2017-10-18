@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4b0747aae8194c18b3ec64c750323b14" Name="Diagram1" ZoomLevel="106">
+        <EntityTypeShape EntityType="Model1.Books" Width="1.5" PointX="0.75" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.Countries" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="Model1.Products" Width="1.5" PointX="5.625" PointY="6" />
+        <AssociationConnector Association="Model1.FKCOUNTRY_PR" />
+        <AssociationConnector Association="Model1.R_9" />
+        <EntityTypeShape EntityType="Model1.Divisions" Width="1.5" PointX="5.625" PointY="10.875" />
+        <EntityTypeShape EntityType="Model1.Editions" Width="1.5" PointX="5.75" PointY="0.5" />
+        <EntityTypeShape EntityType="Model1.ParticipantProducts" Width="1.5" PointX="7.875" PointY="6.875" />
+        <AssociationConnector Association="Model1.R_6" />
+        <AssociationConnector Association="Model1.R_7" />
+        <AssociationConnector Association="Model1.R_17" />
+        <AssociationConnector Association="Model1.R_32" />
+        <AssociationConnector Association="Model1.R_5" />
+        <AssociationConnector Association="Model1.EditionsParentId_fk" />
+        <AssociationConnector Association="Model1.FK_ParticipantProducts_Editions" />
+        <AssociationConnector Association="Model1.R_42" />
+        <EntityTypeShape EntityType="Model1.ProductCategories" Width="1.5" PointX="7.875" PointY="2.75" />
+        <AssociationConnector Association="Model1.FK_ParticipantProducts_ProductCategories" />
+        <AssociationConnector Association="Model1.R_14" />
+        <EntityTypeShape EntityType="Model1.EditionTypes" Width="1.5" PointX="10.375" PointY="1.25" />
+        <AssociationConnector Association="Model1.EditionTypes_Fk" />
+        <EntityTypeShape EntityType="Model1.ContentTypes" Width="1.5" PointX="10.375" PointY="4.875" />
+        <AssociationConnector Association="Model1.R_578" />
+        <EntityTypeShape EntityType="Model1.ProductTypes" Width="1.5" PointX="10.375" PointY="7.875" />
+        <AssociationConnector Association="Model1.FK_Products_ProductTypes" />
+        <EntityTypeShape EntityType="Model1.DivisionImages" Width="1.5" PointX="7.875" PointY="11.125" />
+        <AssociationConnector Association="Model1.FK_DivisionImages_Divisions" />
+        <EntityTypeShape EntityType="Model1.ContentUnits" Width="1.5" PointX="10.875" PointY="19" />
+        <EntityTypeShape EntityType="Model1.ExternalPacks" Width="1.5" PointX="10.875" PointY="14" />
+        <EntityTypeShape EntityType="Model1.InternalPacks" Width="1.5" PointX="10.875" PointY="16.5" />
+        <EntityTypeShape EntityType="Model1.Presentations" Width="1.5" PointX="13.125" PointY="0.875" />
+        <EntityTypeShape EntityType="Model1.WeightUnits" Width="1.5" PointX="10.875" PointY="11.25" />
+        <AssociationConnector Association="Model1.Presentations_ContentUnitId_FK" />
+        <AssociationConnector Association="Model1.Presentations_ExternalPackId_FK" />
+        <AssociationConnector Association="Model1.Presentations_InternalPackId_FK" />
+        <AssociationConnector Association="Model1.Present_DivisionId_CategoryId_ProductId_PharmaFormId_FK" />
+        <AssociationConnector Association="Model1.Presentations_WeightUnits_FK" />
+        <EntityTypeShape EntityType="Model1.ImageSizes" Width="1.5" PointX="21.375" PointY="2.875" />
+        <EntityTypeShape EntityType="Model1.ProductImages" Width="1.75" PointX="15.375" PointY="2.375" />
+        <AssociationConnector Association="Model1.R_192" />
+        <EntityTypeShape EntityType="Model1.ProductImageSizes" Width="1.5" PointX="18.375" PointY="2.75" />
+        <AssociationConnector Association="Model1.ProductImagesProductImageSizes" />
+        <AssociationConnector Association="Model1.ImageSizesProductImageSizes" />
+        <EntityTypeShape EntityType="Model1.EditionPresentations" Width="1.5" PointX="8.125" PointY="0.625" />
+        <AssociationConnector Association="Model1.EditionsEditionPresentations" />
+        <AssociationConnector Association="Model1.PresentationsEditionPresentations" />
+        <EntityTypeShape EntityType="Model1.Alphabet" Width="1.5" PointX="3.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Model1.Categories" Width="1.5" PointX="11" PointY="21.75" />
+        <EntityTypeShape EntityType="Model1.DivisionCategories" Width="1.5" PointX="13.25" PointY="7.625" />
+        <EntityTypeShape EntityType="Model1.DivisionInformation" Width="1.5" PointX="8.25" PointY="14.375" />
+        <EntityTypeShape EntityType="Model1.PharmaceuticalForms" Width="1.5" PointX="0.75" PointY="13.75" />
+        <AssociationConnector Association="Model1.R_4" />
+        <AssociationConnector Association="Model1.FK_DivisionCategories_Categories" />
+        <AssociationConnector Association="Model1.FK_DivisionCategories_DivisionCategories" />
+        <AssociationConnector Association="Model1.FK_ProductCategories_DivisionCategories" />
+        <AssociationConnector Association="Model1.FK_DivisionInformation_Divisions" />
+        <AssociationConnector Association="Model1.R_34" />
+        <EntityTypeShape EntityType="Model1.ProductPharmaForms" Width="1.5" PointX="13.875" PointY="10.5" />
+        <AssociationConnector Association="Model1.FKPHARMAFORM_PF" />
+        <AssociationConnector Association="Model1.FK_ProductCategories_ProductPharmaForms" />
+        <AssociationConnector Association="Model1.FKPRODUCT_PD" />
+        <AssociationConnector Association="Model1.R_25" />
+        <AssociationConnector Association="Model1.NewProducts" />
+        <EntityTypeShape EntityType="Model1.Laboratories" Width="1.5" PointX="13.375" PointY="15" />
+        <AssociationConnector Association="Model1.R_16" />
+        <AssociationConnector Association="Model1.R_33" />
+        <AssociationConnector Association="Model1.Prod_Lab_fk" />
+        <AssociationConnector Association="Model1.R_47" />
+        <EntityTypeShape EntityType="Model1.OffMarkets" Width="1.5" PointX="10.125" PointY="25.125" />
+        <AssociationConnector Association="Model1.R_701" />
+        <EntityTypeShape EntityType="Model1.plm_vwProductsByEdition" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Model1.EditionProductShots" Width="1.5" PointX="16.125" PointY="6.25" />
+        <AssociationConnector Association="Model1.EditionProductShots_Editions_Fk" />
+        <AssociationConnector Association="Model1.EditionProductShots_ProductCategories_Fk" />
+        <EntityTypeShape EntityType="Model1.ProductShotTypes" Width="1.5" PointX="3.375" PointY="16.125" />
+        <AssociationConnector Association="Model1.EditionProductShots_PShotType_Fk" />
+        <EntityTypeShape EntityType="Model1.FamilyPrefixes" Width="1.5" PointX="5.375" PointY="15.75" />
+        <EntityTypeShape EntityType="Model1.PrefixTypes" Width="1.5" PointX="3.125" PointY="13.125" />
+        <AssociationConnector Association="Model1.FK_FamilyPrefixes_PrefixTypes" />
+        <EntityTypeShape EntityType="Model1.Families" Width="1.5" PointX="7.625" PointY="20.125" />
+        <AssociationConnector Association="Model1.FK_Families_FamilyPrefixes" />
+        <EntityTypeShape EntityType="Model1.BarCodes" Width="1.5" PointX="16.125" PointY="0.75" />
+        <EntityTypeShape EntityType="Model1.PriceSources" Width="1.5" PointX="18.375" PointY="7" />
+        <EntityTypeShape EntityType="Model1.ProductBarCodes" Width="1.5" PointX="18.375" PointY="0.875" />
+        <EntityTypeShape EntityType="Model1.ProductPrices" Width="1.5" PointX="20.625" PointY="1" />
+        <AssociationConnector Association="Model1.R_492" />
+        <AssociationConnector Association="Model1.R_491" />
+        <AssociationConnector Association="Model1.R_494" />
+        <AssociationConnector Association="Model1.R_493" />
+        <EntityTypeShape EntityType="Model1.TherapeuticOMS" Width="1.5" PointX="37.25" PointY="27.875" />
+        <EntityTypeShape EntityType="Model1.Therapeutics" Width="1.5" PointX="40.5" PointY="27.625" />
+        <AssociationConnector Association="Model1.FKPARENTID_TH" />
+        <EntityTypeShape EntityType="Model1.ICD" Width="1.5" PointX="39.125" PointY="32.625" />
+        <AssociationConnector Association="Model1.FK_ICD_ICD" />
+        <EntityTypeShape EntityType="Model1.ClinicalReferences" Width="1.5" PointX="37.25" PointY="24.625" />
+        <EntityTypeShape EntityType="Model1.ATCPharmacologicalGroups" Width="1.5" PointX="40.75" PointY="24.875" />
+        <EntityTypeShape EntityType="Model1.ProductTherapeutics" Width="1.5" PointX="33.375" PointY="30.625" />
+        <AssociationConnector Association="Model1.TherapeuticsProductTherapeutics" />
+        <AssociationConnector Association="Model1.ProductPharmaFormsProductTherapeutics" />
+        <EntityTypeShape EntityType="Model1.ProductTherapeuticOMS" Width="1.5" PointX="39.5" PointY="22.25" />
+        <AssociationConnector Association="Model1.R_541" />
+        <AssociationConnector Association="Model1.ProductPharmaFormsProductTherapeuticOMS" ManuallyRouted="true" >
+          <ConnectorPoint PointX="15.2968775" PointY="13.826396484375" />
+          <ConnectorPoint PointX="15.2968775" PointY="16.501562033072918" />
+          <ConnectorPoint PointX="16.176406763202166" PointY="16.501562033072918" />
+          <ConnectorPoint PointX="16.176406763202166" PointY="22.713819114583341" />
+          <ConnectorPoint PointX="27.166666666666668" PointY="22.713819114583341" />
+          <ConnectorPoint PointX="27.333333333333332" PointY="22.713819114583341" />
+          <ConnectorPoint PointX="39.5" PointY="22.713819114583341" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Model1.ProductSubstanceInteractions" Width="1.5" PointX="44.75" PointY="26.875" />
+        <EntityTypeShape EntityType="Model1.ActiveSubstances" Width="1.5" PointX="42.5" PointY="31.75" />
+        <AssociationConnector Association="Model1.R_274" />
+        <EntityTypeShape EntityType="Model1.IPPAProductInteractions" Width="1.5" PointX="44.75" PointY="17.125" />
+        <AssociationConnector Association="Model1.R_402" />
+        <AssociationConnector Association="Model1.IPPAProductInteractionsProductSubstanceInteractions" />
+        <EntityTypeShape EntityType="Model1.ProductInteractions" Width="1.5" PointX="44.75" PointY="32.25" />
+        <AssociationConnector Association="Model1.ProductInteractionsSubstances_FK" />
+        <AssociationConnector Association="Model1.R_403" />
+        <AssociationConnector Association="Model1.SubstanceInteraction_FK" />
+        <EntityTypeShape EntityType="Model1.Indications" Width="1.5" PointX="29.75" PointY="35.5" />
+        <AssociationConnector Association="Model1.FKPARENTID_IND" />
+        <EntityTypeShape EntityType="Model1.ProductIndications" Width="1.5" PointX="26.5" PointY="35.625" />
+        <AssociationConnector Association="Model1.IndicationsProductIndications" />
+        <AssociationConnector Association="Model1.ProductsProductIndications" />
+        <EntityTypeShape EntityType="Model1.ProductICD" Width="1.5" PointX="34.875" PointY="35.125" />
+        <AssociationConnector Association="Model1.ICDProductICD" />
+        <AssociationConnector Association="Model1.ProductPharmaFormsProductICD" />
+        <EntityTypeShape EntityType="Model1.PharmacologicalGroups" Width="1.5" PointX="34" PointY="38.5" />
+        <EntityTypeShape EntityType="Model1.OtherElements" Width="1.5" PointX="36.875" PointY="38.875" />
+        <EntityTypeShape EntityType="Model1.IPPAProductContraindications" Width="1.5" PointX="47.75" PointY="17.625" />
+        <AssociationConnector Association="Model1.R_481" />
+        <AssociationConnector Association="Model1.R_480" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,143 @@
+﻿@model Web.Models.Users
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Login</title>
+    <link rel="icon" href="~/Images/favicon.ico" type="image/vnd.microsoft.icon">
+    <link rel="shortcut icon" href="~/Images/favicon.ico" type="image/vnd.microsoft.icon">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/Login.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+</head>
+<body style="background-color:rgba(247, 241, 227, 0.10)">
+    @Scripts.Render("~/bundles/jquery")
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="container-fluid" style="background-color:rgba(0, 0, 0, 0.001)">
+        <div class='container'>
+            <div class='col-md-12 col-xs-12'>
+                <img class="animation_1" src="~/Images/PLM-LogotipoAzul.png" style="float:initial; width:40%;" />
+                <h2 class="animation_2">
+                    Bienvenido
+                </h2>
+                <br />
+                @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+                {
+                    <section class="animation_3">
+                        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                            <div class="panel panel-default" style="background-color:rgba(0, 0, 0, 0.01)">
+                                <div class="panel-body">
+                                    <h3 class="thin text-center Estilo1 btn-nav">Iniciar sesión</h3>
+                                    <br>
+                                    <form>
+                                        <div style="margin-bottom: 30px" class="input-group Estilo3">
+                                            <span class="input-group-addon btn btn-nav loading"><i class="glyphicon glyphicon-user loading"></i></span>
+                                            @Html.TextBoxFor(name => name.NickName, new { @class = "form-control btn-nav", @placeholder = "Usuario" })
+                                            @Html.ValidationMessageFor(name => name.NickName, null, new { @class = "label label-danger" })
+                                            <span class="help-block"></span>
+                                        </div>
+                                        <div style="margin-bottom: 30px" class="input-group Estilo3">
+                                            <span class="input-group-addon btn btn-nav loading"><i class="glyphicon glyphicon-lock loading"></i></span>
+                                            @Html.PasswordFor(p => p.Password, new { @class = "form-control btn-nav", @placeholder = "Contraseña" })
+                                            @Html.ValidationMessageFor(p => p.Password, null, new { @class = "label label-danger" })
+                                        </div>
+                                        <div class="Estilo3 btn-nav EstiloRojo">
+                                        </div>
+                                        <br>
+                                        <div class="row" align="center">
+                                            <div>
+                                                <input type="submit" name="commit" value="Iniciar sesión" class="btn btn-default loading Estilo5 _time" />
+                                            </div>
+                                        </div>
+                                        <br>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                }
+            </div>
+        </div>
+        @{
+            var _Error = ViewData["Error"];
+            if (_Error != null)
+            {
+                <div class='animation_3'>
+                    <h3>
+                        <span class="red">@ViewData["Error"]</span>
+                    </h3>
+                    <img src="~/Images/candado.png" style="width: 8%;" />
+                </div>
+            }
+        }
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }
+        <script src="~/Scripts/login.js"></script>
+        <div class="container">
+            <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+                <div class="row">
+                    <div class="iconmelon">
+                        <svg viewBox="0 0 32 32">
+                            <g filter="">
+                                <use xlink:href="#git"></use>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="particles"></div>
+    </div>
+    <script src="~/Bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            $("._time").click(function () {
+                $("#_chargeTime").show();
+            });
+            $("#_chargeTime").hide();
+        });
+    </script>
+    <div class="blockscreen" id="_chargeTime">
+        <div id="blockimg">
+            <link href="~/Content/Loader.css" rel="stylesheet" />
+            <div class='loader'>
+                <div class='loader_overlay'></div>
+                <div class='loader_cogs'>
+                    <div class='loader_cogs__top'>
+                        <div class='top_part'></div>
+                        <div class='top_part'></div>
+                        <div class='top_part'></div>
+                        <div class='top_hole'></div>
+                    </div>
+                    <div class='loader_cogs__left'>
+                        <div class='left_part'></div>
+                        <div class='left_part'></div>
+                        <div class='left_part'></div>
+                        <div class='left_hole'></div>
+                    </div>
+                    <div class='loader_cogs__bottom'>
+                        <div class='bottom_part'></div>
+                        <div class='bottom_part'></div>
+                        <div class='bottom_part'></div>
+                        <div class='bottom_hole'></div>
+                    </div>
+                    <h4 style="color:black">Iniciando sesión...</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

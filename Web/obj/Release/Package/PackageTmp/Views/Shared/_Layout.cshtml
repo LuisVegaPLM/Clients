@@ -1,0 +1,243 @@
+﻿@using Web.Models;
+@using System.Web.Mvc;
+@{
+    PLMUsers plm = new PLMUsers();
+    CountriesUsers p = (CountriesUsers)Session["CountriesUsers"];
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="icon" href="~/Images/favicon.ico" type="image/vnd.microsoft.icon">
+    <link rel="shortcut icon" href="~/Images/favicon.ico" type="image/vnd.microsoft.icon">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Styles/sweetalert.css" rel="stylesheet" />
+    <script src="~/Scripts/sweetalert.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="~/Content/Layout.css" rel="stylesheet" />
+    <link href="~/Content/Medinet.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="@Url.Content("~/Content/apprise.min.css")" rel="stylesheet">
+    <script src="@Url.Content("~/Scripts/apprise-1.5.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/Chart.js")"></script>
+    <script src="@Url.Content("~/Scripts/Chart.min.js")"></script>
+    
+    <link href="@Url.Content("~/Content/MedinetCSS.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/font-awesome.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/AdminLTE.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/morris.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/_all-skins.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/blue.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/jquery-jvectormap-1.2.2.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/datepicker3.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/daterangepicker-bs3.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/bootstrap3-wysihtml5.min.css")" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+   
+
+</head>
+<body>
+    <div class="pushWrapper">
+        <header class="pageHeader">
+            <button class="menu-trigger">
+                <span class="lines"></span>
+            </button>
+            <a style="text-decoration:none;" class="headerLogo smoothScroll">
+                <strong style="color:#1b2021">--</strong>
+                <div align="center" class="IconUser notify"></div>
+                <strong style="color:#1b2021">--</strong>
+                @{
+                    CountriesUsers x = (CountriesUsers)Session["CountriesUsers"];
+                        var _NickName = plm.Users.SingleOrDefault(model => model.UserId == x.userId);
+                        <span class="text">Bienvenido @_NickName.Name</span>
+                }
+            </a>
+        </header>
+        <div class="sidebar">
+            <nav class="mainMenu">
+                <ul class="menu">
+                    @*
+                        El panel debe funcionar dinamicamente para cada módulo.
+                        Nota: Si desea agregar mas iconos vaya a la hoja de estilos Layout.css y agrege el nuevo ícono bajo el código que encontrará en la página http://fontawesome.io/icons/
+                    *@
+                    <li>
+                        <a href="@Url.Content("~/Analytics/Index")" style="text-decoration:none" class="smoothScroll zindex">
+                            <strong style="color:#1b2021">--</strong>
+                            <div align="center" class="IconHome notify"></div>
+                            <strong style="color:#1b2021">--</strong><span class="text">Inicio</span>
+                        </a>
+                    </li>
+                    <li class="_closesession">
+                        <a style="text-decoration:none" class="smoothScroll" href="@Url.Content("~/Login/Logout")" title="Get a home">
+                            <strong style="color:#1b2021">--</strong>
+                            <div align="center" class="IconOut notify"></div>
+                            <strong style="color:#1b2021">--</strong><span class="text">Cerrar sesión</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            @*<nav class="backToTop">
+                <ul class="backToTop-menu">
+                    <li class="_closesession">
+                        <a style="text-decoration:none" class="smoothScroll" href="@Url.Content("~/Login/Logout")" title="Get a home">
+                            <strong style="color:#1b2021">--</strong>
+                            <div align="center" class="IconOut notify"></div>
+                            <strong style="color:#1b2021">--</strong><span class="text">Cerrar sesión</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>*@
+        </div>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+        <div class=" col-md-10 center body-content">
+            @*
+                Script: Despliega menú con la propiedad 'hover'
+            *@
+            <script>
+                $(document).ready(function () {
+                    $(".dropdown").hover(
+                        function () {
+                            $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("400");
+                            $(this).toggleClass('open');
+                        },
+                        function () {
+                            $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("400");
+                            $(this).toggleClass('open');
+                        }
+                    );
+                });
+            </script>
+            <br />
+            <br />
+            <br />
+            @RenderBody()
+            <br />
+            <br />
+            <br />
+            <br />
+            <div class="row col-md-12">
+                <div class="title_new">
+                    <div class="title-word_new" style="font-weight:normal;"><p><span style="color:#003870; font-size: 20px;">PLM</span><span style="font-size: 20px;">  </span></p></div> @*- @DateTime.Now.Year*@
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <script src="~/Scripts/Medinet.js"></script>
+    <script src="@Url.Content("~/Scripts/Analytics.js")"></script>
+    <script src="@Url.Content("~/Scripts/Medinet.js")"></script>
+
+    <script src="@Url.Content("~/Scripts/Chart.js")"></script>
+    <script src="@Url.Content("~/Scripts/Chart.min.js")"></script>
+
+    <script src="@Url.Content("~/Scripts/jQuery-2.1.4.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.sparkline.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-jvectormap-1.2.2.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-jvectormap-world-mill-en.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.knob.js")"></script>
+    <script src="@Url.Content("~/Scripts/daterangepicker.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap3-wysihtml5.all.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.slimscroll.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/fastclick.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/apprise-1.5.min.js")"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+    <script src="~/Scripts/DataTables/jqueryDataTablesProducts.js"></script>
+    <script src="~/Scripts/DataTables/dataTables.scroller.min.js"></script>
+    <script src="~/Scripts/DataTables/dataTables.bootstrap.js"></script>
+    <link href="~/Content/DataTables/css/dataTables.bootstrap.css" rel="stylesheet" />
+
+   
+
+</body>
+</html>
+<script>
+    $(function () {
+        $("._closesession").click(function () {
+            $("#_chargeOut").show();
+        });
+        $("#_chargeOut").hide();
+    });
+</script>
+<div class="_blockPage" id="_chargeOut">
+    <div id="_blockmsg">
+    </div>
+    <div id="_blockcss">
+        <link href="~/Content/loaders.css" rel="stylesheet" />
+        <div class='loader'>
+            <div class='loader_overlay'></div>
+            <div class='loader_cogs'>
+                <div class='loader_cogs__top'>
+                    <div class='top_part'></div>
+                    <div class='top_part'></div>
+                    <div class='top_part'></div>
+                    <div class='top_hole'></div>
+                </div>
+                <div class='loader_cogs__left'>
+                    <div class='left_part'></div>
+                    <div class='left_part'></div>
+                    <div class='left_part'></div>
+                    <div class='left_hole'></div>
+                </div>
+                <div class='loader_cogs__bottom'>
+                    <div class='bottom_part'></div>
+                    <div class='bottom_part'></div>
+                    <div class='bottom_part'></div>
+                    <div class='bottom_hole'></div>
+                </div>
+                <p style="color: black">Cerrando sesión...</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $(".zindex").click(function () {
+            $("#_chargeTime").show();
+        });
+        $("#_chargeTime").hide();
+    });
+</script>
+<div class="_blockPage" id="_chargeTime">
+    <div id="_blockmsg">
+    </div>
+    <div id="_blockcss">
+        <link href="~/Content/loaders.css" rel="stylesheet" />
+        <div class='loader'>
+            <div class='loader_overlay'></div>
+            <div class='loader_cogs'>
+                <div class='loader_cogs__top'>
+                    <div class='top_part'></div>
+                    <div class='top_part'></div>
+                    <div class='top_part'></div>
+                    <div class='top_hole'></div>
+                </div>
+                <div class='loader_cogs__left'>
+                    <div class='left_part'></div>
+                    <div class='left_part'></div>
+                    <div class='left_part'></div>
+                    <div class='left_hole'></div>
+                </div>
+                <div class='loader_cogs__bottom'>
+                    <div class='bottom_part'></div>
+                    <div class='bottom_part'></div>
+                    <div class='bottom_part'></div>
+                    <div class='bottom_hole'></div>
+                </div>
+                <p>Cargando...</p>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,310 @@
+﻿@model IEnumerable<Web.Models.GetClients>
+@using Web.Models
+@{
+    ViewBag.Title = "Report";
+
+    Web.Models.SessionRows Rows = (Web.Models.SessionRows)Session["SessionRows"];
+    WebGrid _datagrid;
+
+    if (Rows != null)
+    {
+
+        if (Rows.Values == "0")
+        {
+            _datagrid = new WebGrid(Model, rowsPerPage: 15);
+        }
+
+        else if (Rows.Values == "all")
+        {
+            int count = Convert.ToInt32(Model.LongCount());
+
+            _datagrid = new WebGrid(Model, rowsPerPage: count);
+        }
+
+        else
+        {
+            int count = int.Parse(Rows.Values);
+
+            _datagrid = new WebGrid(Model, rowsPerPage: count);
+        }
+    }
+    else
+    {
+        _datagrid = new WebGrid(Model, rowsPerPage: 100);
+    }
+}
+
+<div class="row col-md-9">
+    <div class="headergroup">
+        <div class="title">
+            <br />
+            <div class="title-word" style="font-weight:normal; text-transform:none">Analytics <span style="color:#de5347"></span></div>
+            <br />
+
+            <nav style="background: rgb( 252, 248, 240 ); border-radius: 10px; " class="navbar navbar-default">
+                <ul class="nav navbar-nav hov">
+                    <li style="background: rgba(233, 233, 233, 0.01);" class="dropdown navbar-default hov">
+                        <a class="dropdown-toggle" role="button" onclick="Profesion($(this))"><b> Profesión</b></a>
+
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav hov">
+                    <li style="background: rgba(233, 233, 233, 0.01);" class="dropdown navbar-default hov">
+                        <a class="dropdown-toggle" role="button" onclick="Specialities($(this))"><b> Especialidad</b></a>
+
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav hov">
+                    <li style="background: rgba(233, 233, 233, 0.01);" class="dropdown navbar-default hov">
+                        <a class="dropdown-toggle" role="button" onclick="Countries($(this))"><b> Pais</b></a>
+
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav hov">
+                    <li style="background: rgba(233, 233, 233, 0.01);" class="dropdown navbar-default hov">
+                        <a class="dropdown-toggle" role="button" onclick="Country()"><b> Estado</b></a>
+                        <div align="right">
+                            <select id="Getcountries" class="form-control" style="display:none" onchange="States($(this))"></select>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+
+
+        </div>
+    </div>
+</div>
+
+
+<div style="width:0;" class="col-md-1"></div>
+<div class="row col-md-2">
+    <br />
+    <div class="title_new">
+        <div class="title-word_new">
+            <div class="well well-white mini-profile-widget" style="padding: 0px">
+                <div class="image-container" align="center">
+                    <img src="@Url.Content("~/Images/ediciones.gif")" class="img-responsive" alt="avatar">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div id='verProfessions' style="display: none" align="center" class="row col-md-9">
+    <div class="panel panel-primary">
+        <div align="right">
+            <a style="width: 50px; height: 30px;" class="btn btn-danger" onclick="OcultarProf($(this))">
+                <i class="glyphicon glyphicon glyphicon-remove"></i>
+            </a>
+        </div>
+        <h4>Profesión</h4>
+        <div id="TotalProf"></div>
+        <canvas id="GraphProfessions" width="150" height="100"></canvas>
+        <br />
+        <br />
+        <br />
+        <div class="panel-body">
+            <div id="_dvProf" class="row col-md-10 table-responsive" align="center">
+                <table id="_Prof" class="table table-hover table-bordered webgrid-table" align="center">
+                    <thead>
+                        <tr style=" box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);">
+                            <td style="vertical-align:middle" align="center" class="warning Estilo4">Nombre de la Profesión</td>
+                            <td style="vertical-align:middle" align="center" class="warning Estilo4">Total</td>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id='verSpecialities' style="display: none" align="center" class="row col-md-9">
+    <div class="panel panel-primary">
+        <div align="right">
+            <a style="width: 50px; height: 30px;" class="btn btn-danger" onclick="OcultarSpe($(this))">
+                <i class="glyphicon glyphicon glyphicon-remove"></i>
+            </a>
+        </div>
+        <h4>Especialidad</h4>
+        <div id="TotalSpe"></div>
+        <canvas id="GraphSpecialities" width="100" height="100"></canvas>
+        <br />
+        <br />
+        <br />
+        <div class="panel-body">
+            <div id="_dvProf" class="row col-md-10 table-responsive" align="center">
+                <table id="_Spe" class="table table-hover table-bordered" align="center">
+                    <thead>
+                        <tr style="box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);">
+                            <td style="vertical-align:middle" align="center" class="warning Estilo4">Nombre de Especialidad</td>
+                            <td style="vertical-align:middle" align="center" class="warning Estilo4">Total</td>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id='verCountry' style="display: none" align="center" class="row col-md-9">
+    <div class="panel panel-primary">
+        <div align="right">
+            <a style="width: 50px; height: 30px;" class="btn btn-danger" onclick="OcultarCoun($(this))">
+                <i class="glyphicon glyphicon glyphicon-remove"></i>
+            </a>
+        </div>
+        <h4>País</h4>
+        <div id="TotalCoun"></div>
+        <canvas id="GraphCountry" width="150" height="100"></canvas>
+        <br />
+        <br />
+        <br />
+        <div class="panel-body">
+            <div id="_dvProf" class="row col-md-10 table-responsive" align="center">
+                <table id="_Coun" class="table table-hover table-bordered" align="center">
+                    <thead class=" webgrid-header th">
+                        <tr style="box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);">
+                            <td style="vertical-align:middle" align="center" class="warning Estilo4">País</td>
+                            <td style="vertical-align:middle" align="center" class="warning Estilo4">Total</td>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id='verState' style="display: none" align="center" class="row col-md-9">
+    <div class="panel panel-primary">
+        <div align="right">
+            <a style="width: 50px; height: 30px;" class="btn btn-danger" onclick="OcultarState($(this))">
+                <i class="glyphicon glyphicon glyphicon-remove"></i>
+            </a>
+        </div>
+        <h4>Estado</h4>
+        <div id="TotalState"></div>
+        <div id="divstate">
+            <canvas id="GraphStates"></canvas>
+        </div>
+        <br />
+        <br />
+        <br />
+        <div class="panel-body">
+            <div id="_dvProf" class="row col-md-10 table-responsive" align="center">
+                <table id="_State" class="table table-hover table-bordered" align="center">
+                    <thead>
+                        <tr style="box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);">
+                            <td style="vertical-align:middle" align="center" class="warning Estilo4">Estado</td>
+                            <td style="vertical-align:middle" align="center" class="warning Estilo4">Total</td>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+
+
+
+<div class="row col-md-10">
+    <nav style="background: rgb( 252, 248, 240 ); border-radius: 10px; " class="navbar navbar-default">
+        <ul class="nav navbar-nav hov">
+            <li style="background: rgba(233, 233, 233, 0.01);" class="dropdown navbar-default hov">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>Cantidad de Registros...</b><span style="margin-left: 5px; color: black" class="caret"></span></a>
+                <ul style="border-radius:10px;" class="dropdown-menu" role="menu" onchange="rowsPerPage()">
+                    <li onclick="rowsPerPage(10)">10 Registros por Página</li>
+                    <li onclick="rowsPerPage(50)">50 Registros por Página</li>
+                    <li onclick="rowsPerPage(100)">100  Registros por Página</li>
+                    <li onclick="rowsPerPage(200)">200  Registros por Página</li>
+                    <li onclick="rowsPerPage(500)">500  Registros por Página</li>
+                    <li onclick="rowsPerPage(1000)">1000  Registros por Página</li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav hov">
+            <li style="background: rgba(233, 233, 233, 0.01);" class="dropdown navbar-default hov">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>Exportar productos</b><span style="margin-left: 5px; color: black" class="caret"></span></a>
+                <ul style="border-radius:10px;" class="dropdown-menu" role="menu">
+                    <li><a href="@Url.Content("~/Analytics/ExcelReport/1")" class="report"><span class="glyphicon glyphiconr glyphicon glyphicon-export text-success"></span>Exportar a Excel</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </nav>
+</div>
+
+<div class="row col-md-11">
+    <div class="tablestyle table-responsive">
+        @_datagrid.GetHtml(
+                          headerStyle: "webgrid-header",
+                          footerStyle: "webgrid-footer",
+                          alternatingRowStyle: "webgrid-alternating-row",
+                          selectedRowStyle: "webgrid-selected-row",
+                          rowStyle: "webgrid-row-style",
+                          tableStyle: "webgrid-table ",
+                          mode: WebGridPagerModes.All,
+                          columns: new[] {
+                                   _datagrid.Column("", header: "Nombre", format: @<text>
+                                @{
+                                    <span class="display-mode"><span id="lblPName">@item.Name</span> </span>
+                                }
+                                </text>, style:"column7"),
+
+                                   _datagrid.Column("", header: "Profesión", format: @<text>
+            @{
+                <span class="display-mode"> <span id="lblProfesion">@item.ProfessionName</span> </span>
+            }
+                                </text>, style:"column7"),
+
+                                _datagrid.Column("", header: "Especialidad", format: @<text>
+            @{
+                <span class="display-mode"> <span id="lblEspecialidad">@item.SpecialityName</span> </span>
+                @*<input type="text" value="@item.CategoryId" style="display: none; " id="txtCategoryId" />*@
+            }
+                                </text>, style:"column7"),
+
+                                _datagrid.Column("", header: "Pais", format: @<text>
+            @{
+                <span class="display-mode"><span id="lblPais">@item.CountryName</span> </span>
+
+            }
+                                </text>, style:"text-justify column7"),
+
+                                _datagrid.Column("", header: "Estado", format: @<text>
+            @{
+                <span class="display-mode"><span id="lblEstado">@item.StateName</span> </span>
+            }
+                                </text>, style:"column7"),
+                              _datagrid.Column("", header: "Email", format: @<text>
+            @{
+                <span class="display-mode"><span id="lblEstado">@item.Email</span> </span>
+            }
+                            </text>, style:"column7")
+                                })
+    </div>
+</div>
+
+
+
+
+
+
+
+

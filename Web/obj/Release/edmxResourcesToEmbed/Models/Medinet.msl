@@ -1,0 +1,667 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Medinet">
+    <EntitySetMapping Name="Books">
+      <EntityTypeMapping TypeName="Model1.Books">
+        <MappingFragment StoreEntitySet="Books">
+          <ScalarProperty Name="BookId" ColumnName="BookId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="Model1.Countries">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="Model1.Products">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="SanitaryRegistry" ColumnName="SanitaryRegistry" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="ProductTypeId" ColumnName="ProductTypeId" />
+          <ScalarProperty Name="AlphabetId" ColumnName="AlphabetId" />
+          <ScalarProperty Name="LaboratoryId" ColumnName="LaboratoryId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Divisions">
+      <EntityTypeMapping TypeName="Model1.Divisions">
+        <MappingFragment StoreEntitySet="Divisions">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="LaboratoryId" ColumnName="LaboratoryId" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Editions">
+      <EntityTypeMapping TypeName="Model1.Editions">
+        <MappingFragment StoreEntitySet="Editions">
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="BookId" ColumnName="BookId" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="BarCode" ColumnName="BarCode" />
+          <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+          <ScalarProperty Name="NumberEdition" ColumnName="NumberEdition" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="EditionTypeId" ColumnName="EditionTypeId" />
+          <ScalarProperty Name="EditionId" ColumnName="EditionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParticipantProducts">
+      <EntityTypeMapping TypeName="Model1.ParticipantProducts">
+        <MappingFragment StoreEntitySet="ParticipantProducts">
+          <ScalarProperty Name="ContentTypeId" ColumnName="ContentTypeId" />
+          <ScalarProperty Name="ModifiedContent" ColumnName="ModifiedContent" />
+          <ScalarProperty Name="XMLContent" ColumnName="XMLContent" />
+          <ScalarProperty Name="HTMLContent" ColumnName="HTMLContent" />
+          <ScalarProperty Name="Page" ColumnName="Page" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="PharmaFormId" ColumnName="PharmaFormId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="EditionId" ColumnName="EditionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductCategories">
+      <EntityTypeMapping TypeName="Model1.ProductCategories">
+        <MappingFragment StoreEntitySet="ProductCategories">
+          <ScalarProperty Name="JSONFormat" ColumnName="JSONFormat" />
+          <ScalarProperty Name="SSFraction" ColumnName="SSFraction" />
+          <ScalarProperty Name="SanitaryRegister" ColumnName="SanitaryRegister" />
+          <ScalarProperty Name="HTMLFileName" ColumnName="HTMLFileName" />
+          <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+          <ScalarProperty Name="TechnicalSheet" ColumnName="TechnicalSheet" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="PharmaFormId" ColumnName="PharmaFormId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EditionTypes">
+      <EntityTypeMapping TypeName="Model1.EditionTypes">
+        <MappingFragment StoreEntitySet="EditionTypes">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="EditionTypeId" ColumnName="EditionTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContentTypes">
+      <EntityTypeMapping TypeName="Model1.ContentTypes">
+        <MappingFragment StoreEntitySet="ContentTypes">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+          <ScalarProperty Name="ContentTypeId" ColumnName="ContentTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductTypes">
+      <EntityTypeMapping TypeName="Model1.ProductTypes">
+        <MappingFragment StoreEntitySet="ProductTypes">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="ProductTypeId" ColumnName="ProductTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DivisionImages">
+      <EntityTypeMapping TypeName="Model1.DivisionImages">
+        <MappingFragment StoreEntitySet="DivisionImages">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="BaseUrl" ColumnName="BaseUrl" />
+          <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="ImageTypeId" ColumnName="ImageTypeId" />
+          <ScalarProperty Name="DivisionImageId" ColumnName="DivisionImageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContentUnits">
+      <EntityTypeMapping TypeName="Model1.ContentUnits">
+        <MappingFragment StoreEntitySet="ContentUnits">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="ContentUnitId" ColumnName="ContentUnitId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExternalPacks">
+      <EntityTypeMapping TypeName="Model1.ExternalPacks">
+        <MappingFragment StoreEntitySet="ExternalPacks">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ExternalPackName" ColumnName="ExternalPackName" />
+          <ScalarProperty Name="ExternalPackId" ColumnName="ExternalPackId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InternalPacks">
+      <EntityTypeMapping TypeName="Model1.InternalPacks">
+        <MappingFragment StoreEntitySet="InternalPacks">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="InternalPackName" ColumnName="InternalPackName" />
+          <ScalarProperty Name="InternalPackId" ColumnName="InternalPackId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Presentations">
+      <EntityTypeMapping TypeName="Model1.Presentations">
+        <MappingFragment StoreEntitySet="Presentations">
+          <ScalarProperty Name="JSONFormat" ColumnName="JSONFormat" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Presentation" ColumnName="Presentation" />
+          <ScalarProperty Name="WeightUnitId" ColumnName="WeightUnitId" />
+          <ScalarProperty Name="QtyWeightUnit" ColumnName="QtyWeightUnit" />
+          <ScalarProperty Name="ContentUnitId" ColumnName="ContentUnitId" />
+          <ScalarProperty Name="QtyContentUnit" ColumnName="QtyContentUnit" />
+          <ScalarProperty Name="InternalPackId" ColumnName="InternalPackId" />
+          <ScalarProperty Name="QtyInternalPack" ColumnName="QtyInternalPack" />
+          <ScalarProperty Name="ExternalPackId" ColumnName="ExternalPackId" />
+          <ScalarProperty Name="QtyExternalPack" ColumnName="QtyExternalPack" />
+          <ScalarProperty Name="PharmaFormId" ColumnName="PharmaFormId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="PresentationId" ColumnName="PresentationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WeightUnits">
+      <EntityTypeMapping TypeName="Model1.WeightUnits">
+        <MappingFragment StoreEntitySet="WeightUnits">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="WeightUnitId" ColumnName="WeightUnitId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImageSizes">
+      <EntityTypeMapping TypeName="Model1.ImageSizes">
+        <MappingFragment StoreEntitySet="ImageSizes">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="ImageSizeId" ColumnName="ImageSizeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductImages">
+      <EntityTypeMapping TypeName="Model1.ProductImages">
+        <MappingFragment StoreEntitySet="ProductImages">
+          <ScalarProperty Name="PresentationId" ColumnName="PresentationId" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="BaseURL" ColumnName="BaseURL" />
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="ProductShot" ColumnName="ProductShot" />
+          <ScalarProperty Name="ProductImageId" ColumnName="ProductImageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductImageSizes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.ProductImageSizes)">
+        <MappingFragment StoreEntitySet="ProductImageSizes">
+          <ScalarProperty Name="ImageSizeId" ColumnName="ImageSizeId" />
+          <ScalarProperty Name="ProductImageId" ColumnName="ProductImageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EditionPresentations">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.EditionPresentations)">
+        <MappingFragment StoreEntitySet="EditionPresentations">
+          <ScalarProperty Name="PresentationId" ColumnName="PresentationId" />
+          <ScalarProperty Name="EditionId" ColumnName="EditionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Alphabet">
+      <EntityTypeMapping TypeName="Model1.Alphabet">
+        <MappingFragment StoreEntitySet="Alphabet">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Letter" ColumnName="Letter" />
+          <ScalarProperty Name="AlphabetId" ColumnName="AlphabetId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="Model1.Categories">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DivisionCategories">
+      <EntityTypeMapping TypeName="Model1.DivisionCategories">
+        <MappingFragment StoreEntitySet="DivisionCategories">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DivisionInformation">
+      <EntityTypeMapping TypeName="Model1.DivisionInformation">
+        <MappingFragment StoreEntitySet="DivisionInformation">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Web" ColumnName="Web" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Suburb" ColumnName="Suburb" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="DivisionInfId" ColumnName="DivisionInfId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PharmaceuticalForms">
+      <EntityTypeMapping TypeName="Model1.PharmaceuticalForms">
+        <MappingFragment StoreEntitySet="PharmaceuticalForms">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="EnglishDescription" ColumnName="EnglishDescription" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="PharmaFormKey" ColumnName="PharmaFormKey" />
+          <ScalarProperty Name="PharmaFormId" ColumnName="PharmaFormId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductPharmaForms">
+      <EntityTypeMapping TypeName="Model1.ProductPharmaForms">
+        <MappingFragment StoreEntitySet="ProductPharmaForms">
+          <ScalarProperty Name="ReferenceUrl" ColumnName="ReferenceUrl" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="PharmaFormId" ColumnName="PharmaFormId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Laboratories">
+      <EntityTypeMapping TypeName="Model1.Laboratories">
+        <MappingFragment StoreEntitySet="Laboratories">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CourtesyImage" ColumnName="CourtesyImage" />
+          <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+          <ScalarProperty Name="LaboratoryName" ColumnName="LaboratoryName" />
+          <ScalarProperty Name="CompanyTypeId" ColumnName="CompanyTypeId" />
+          <ScalarProperty Name="LaboratoryId" ColumnName="LaboratoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OffMarkets">
+      <EntityTypeMapping TypeName="Model1.OffMarkets">
+        <MappingFragment StoreEntitySet="OffMarkets">
+          <ScalarProperty Name="OffDate" ColumnName="OffDate" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="PharmaFormId" ColumnName="PharmaFormId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="plm_vwProductsByEdition">
+      <EntityTypeMapping TypeName="Model1.plm_vwProductsByEdition">
+        <MappingFragment StoreEntitySet="plm_vwProductsByEdition">
+          <ScalarProperty Name="CountryCodes" ColumnName="CountryCodes" />
+          <ScalarProperty Name="NumberOfOMSTherapeutics" ColumnName="NumberOfOMSTherapeutics" />
+          <ScalarProperty Name="NumberOfTherapeutics" ColumnName="NumberOfTherapeutics" />
+          <ScalarProperty Name="NumberOfIndications" ColumnName="NumberOfIndications" />
+          <ScalarProperty Name="NumberOfActiveSubstances" ColumnName="NumberOfActiveSubstances" />
+          <ScalarProperty Name="BookActive" ColumnName="BookActive" />
+          <ScalarProperty Name="BookName" ColumnName="BookName" />
+          <ScalarProperty Name="BookId" ColumnName="BookId" />
+          <ScalarProperty Name="BriefProduct" ColumnName="BriefProduct" />
+          <ScalarProperty Name="NewProduct" ColumnName="NewProduct" />
+          <ScalarProperty Name="Page" ColumnName="Page" />
+          <ScalarProperty Name="ModifiedContent" ColumnName="ModifiedContent" />
+          <ScalarProperty Name="TypeInEdition" ColumnName="TypeInEdition" />
+          <ScalarProperty Name="EditionActive" ColumnName="EditionActive" />
+          <ScalarProperty Name="BarCode" ColumnName="BarCode" />
+          <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+          <ScalarProperty Name="NumberEdition" ColumnName="NumberEdition" />
+          <ScalarProperty Name="EditionId" ColumnName="EditionId" />
+          <ScalarProperty Name="PharmaActive" ColumnName="PharmaActive" />
+          <ScalarProperty Name="EnglishPharmaForm" ColumnName="EnglishPharmaForm" />
+          <ScalarProperty Name="PharmaForm" ColumnName="PharmaForm" />
+          <ScalarProperty Name="PharmaFormId" ColumnName="PharmaFormId" />
+          <ScalarProperty Name="ProductActive" ColumnName="ProductActive" />
+          <ScalarProperty Name="LabDescription" ColumnName="LabDescription" />
+          <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+          <ScalarProperty Name="SanitaryRegistry" ColumnName="SanitaryRegistry" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+          <ScalarProperty Name="ProductTypeId" ColumnName="ProductTypeId" />
+          <ScalarProperty Name="CategoryActive" ColumnName="CategoryActive" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="DivisionActive" ColumnName="DivisionActive" />
+          <ScalarProperty Name="DivisionShortName" ColumnName="DivisionShortName" />
+          <ScalarProperty Name="DivisionName" ColumnName="DivisionName" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="LabActive" ColumnName="LabActive" />
+          <ScalarProperty Name="LaboratoryName" ColumnName="LaboratoryName" />
+          <ScalarProperty Name="LaboratoryId" ColumnName="LaboratoryId" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EditionProductShots">
+      <EntityTypeMapping TypeName="Model1.EditionProductShots">
+        <MappingFragment StoreEntitySet="EditionProductShots">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="QtyCells" ColumnName="QtyCells" />
+          <ScalarProperty Name="ProductShot" ColumnName="ProductShot" />
+          <ScalarProperty Name="PSTypeId" ColumnName="PSTypeId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="PharmaFormId" ColumnName="PharmaFormId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="EditionId" ColumnName="EditionId" />
+          <ScalarProperty Name="EditionProductShotId" ColumnName="EditionProductShotId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductShotTypes">
+      <EntityTypeMapping TypeName="Model1.ProductShotTypes">
+        <MappingFragment StoreEntitySet="ProductShotTypes">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="PSTypeId" ColumnName="PSTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FamilyPrefixes">
+      <EntityTypeMapping TypeName="Model1.FamilyPrefixes">
+        <MappingFragment StoreEntitySet="FamilyPrefixes">
+          <ScalarProperty Name="PrefixTypeId" ColumnName="PrefixTypeId" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="PrefixDescription" ColumnName="PrefixDescription" />
+          <ScalarProperty Name="CurrentValue" ColumnName="CurrentValue" />
+          <ScalarProperty Name="PrefixName" ColumnName="PrefixName" />
+          <ScalarProperty Name="EditionId" ColumnName="EditionId" />
+          <ScalarProperty Name="PrefixId" ColumnName="PrefixId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrefixTypes">
+      <EntityTypeMapping TypeName="Model1.PrefixTypes">
+        <MappingFragment StoreEntitySet="PrefixTypes">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="PrefixTypeId" ColumnName="PrefixTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Families">
+      <EntityTypeMapping TypeName="Model1.Families">
+        <MappingFragment StoreEntitySet="Families">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="FamilyString" ColumnName="FamilyString" />
+          <ScalarProperty Name="PrefixId" ColumnName="PrefixId" />
+          <ScalarProperty Name="FamilyId" ColumnName="FamilyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BarCodes">
+      <EntityTypeMapping TypeName="Model1.BarCodes">
+        <MappingFragment StoreEntitySet="BarCodes">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="BarCode" ColumnName="BarCode" />
+          <ScalarProperty Name="BarCodeId" ColumnName="BarCodeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PriceSources">
+      <EntityTypeMapping TypeName="Model1.PriceSources">
+        <MappingFragment StoreEntitySet="PriceSources">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="SourceShortName" ColumnName="SourceShortName" />
+          <ScalarProperty Name="SourceName" ColumnName="SourceName" />
+          <ScalarProperty Name="PriceSourceId" ColumnName="PriceSourceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductBarCodes">
+      <EntityTypeMapping TypeName="Model1.ProductBarCodes">
+        <MappingFragment StoreEntitySet="ProductBarCodes">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="AveragePrice" ColumnName="AveragePrice" />
+          <ScalarProperty Name="BarCodeId" ColumnName="BarCodeId" />
+          <ScalarProperty Name="PresentationId" ColumnName="PresentationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductPrices">
+      <EntityTypeMapping TypeName="Model1.ProductPrices">
+        <MappingFragment StoreEntitySet="ProductPrices">
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="PriceSourceId" ColumnName="PriceSourceId" />
+          <ScalarProperty Name="BarCodeId" ColumnName="BarCodeId" />
+          <ScalarProperty Name="PresentationId" ColumnName="PresentationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TherapeuticOMS">
+      <EntityTypeMapping TypeName="Model1.TherapeuticOMS">
+        <MappingFragment StoreEntitySet="TherapeuticOMS">
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="SpanishDescription" ColumnName="SpanishDescription" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="TherapeuticKey" ColumnName="TherapeuticKey" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="TherapeuticOMSId" ColumnName="TherapeuticOMSId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Therapeutics">
+      <EntityTypeMapping TypeName="Model1.Therapeutics">
+        <MappingFragment StoreEntitySet="Therapeutics">
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="SpanishDescription" ColumnName="SpanishDescription" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="TherapeuticKey" ColumnName="TherapeuticKey" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="TherapeuticId" ColumnName="TherapeuticId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="NewProducts" TypeName="Model1.NewProducts" StoreEntitySet="NewProducts">
+      <EndProperty Name="ProductCategories">
+        <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+        <ScalarProperty Name="PharmaFormId" ColumnName="PharmaFormId" />
+        <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+      </EndProperty>
+      <EndProperty Name="Editions">
+        <ScalarProperty Name="EditionId" ColumnName="EditionId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="ICD">
+      <EntityTypeMapping TypeName="Model1.ICD">
+        <MappingFragment StoreEntitySet="ICD">
+          <ScalarProperty Name="JSONFormat" ColumnName="JSONFormat" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="EnglishDescription" ColumnName="EnglishDescription" />
+          <ScalarProperty Name="SpanishDescription" ColumnName="SpanishDescription" />
+          <ScalarProperty Name="ICDKey" ColumnName="ICDKey" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="ICDId" ColumnName="ICDId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClinicalReferences">
+      <EntityTypeMapping TypeName="Model1.ClinicalReferences">
+        <MappingFragment StoreEntitySet="ClinicalReferences">
+          <ScalarProperty Name="ReferenceSource" ColumnName="ReferenceSource" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ClinicalReference" ColumnName="ClinicalReference" />
+          <ScalarProperty Name="ClinicalReferenceId" ColumnName="ClinicalReferenceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ATCPharmacologicalGroups">
+      <EntityTypeMapping TypeName="Model1.ATCPharmacologicalGroups">
+        <MappingFragment StoreEntitySet="ATCPharmacologicalGroups">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="PharmaGroupName" ColumnName="PharmaGroupName" />
+          <ScalarProperty Name="PharmaGroupId" ColumnName="PharmaGroupId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductTherapeutics">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.ProductTherapeutics)">
+        <MappingFragment StoreEntitySet="ProductTherapeutics">
+          <ScalarProperty Name="PharmaFormId" ColumnName="PharmaFormId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="TherapeuticId" ColumnName="TherapeuticId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductTherapeuticOMS">
+      <EntityTypeMapping TypeName="Model1.ProductTherapeuticOMS">
+        <MappingFragment StoreEntitySet="ProductTherapeuticOMS">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="PharmaFormId" ColumnName="PharmaFormId" />
+          <ScalarProperty Name="TherapeuticOMSId" ColumnName="TherapeuticOMSId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductSubstanceInteractions">
+      <EntityTypeMapping TypeName="Model1.ProductSubstanceInteractions">
+        <MappingFragment StoreEntitySet="ProductSubstanceInteractions">
+          <ScalarProperty Name="ActiveSubstanceId" ColumnName="ActiveSubstanceId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="PharmaFormId" ColumnName="PharmaFormId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="SubstanceInteractId" ColumnName="SubstanceInteractId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActiveSubstances">
+      <EntityTypeMapping TypeName="Model1.ActiveSubstances">
+        <MappingFragment StoreEntitySet="ActiveSubstances">
+          <ScalarProperty Name="JSONFormat" ColumnName="JSONFormat" />
+          <ScalarProperty Name="Enunciative" ColumnName="Enunciative" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="EnglishDescription" ColumnName="EnglishDescription" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="SubstanceKey" ColumnName="SubstanceKey" />
+          <ScalarProperty Name="ActiveSubstanceId" ColumnName="ActiveSubstanceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IPPAProductInteractions">
+      <EntityTypeMapping TypeName="Model1.IPPAProductInteractions">
+        <MappingFragment StoreEntitySet="IPPAProductInteractions">
+          <ScalarProperty Name="PlainContent" ColumnName="PlainContent" />
+          <ScalarProperty Name="HTMLContent" ColumnName="HTMLContent" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="ActiveSubstanceId" ColumnName="ActiveSubstanceId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="PharmaFormId" ColumnName="PharmaFormId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductInteractions">
+      <EntityTypeMapping TypeName="Model1.ProductInteractions">
+        <MappingFragment StoreEntitySet="ProductInteractions">
+          <ScalarProperty Name="SubstanceInteractId" ColumnName="SubstanceInteractId" />
+          <ScalarProperty Name="ActiveSubstanceId" ColumnName="ActiveSubstanceId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ProductContentId" ColumnName="ProductContentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Indications">
+      <EntityTypeMapping TypeName="Model1.Indications">
+        <MappingFragment StoreEntitySet="Indications">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IndicationKey" ColumnName="IndicationKey" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="IndicationId" ColumnName="IndicationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductIndications">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.ProductIndications)">
+        <MappingFragment StoreEntitySet="ProductIndications">
+          <ScalarProperty Name="IndicationId" ColumnName="IndicationId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductICD">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.ProductICD)">
+        <MappingFragment StoreEntitySet="ProductICD">
+          <ScalarProperty Name="ICDId" ColumnName="ICDId" />
+          <ScalarProperty Name="PharmaFormId" ColumnName="PharmaFormId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PharmacologicalGroups">
+      <EntityTypeMapping TypeName="Model1.PharmacologicalGroups">
+        <MappingFragment StoreEntitySet="PharmacologicalGroups">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="PharmaGroupId" ColumnName="PharmaGroupId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OtherElements">
+      <EntityTypeMapping TypeName="Model1.OtherElements">
+        <MappingFragment StoreEntitySet="OtherElements">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ElementName" ColumnName="ElementName" />
+          <ScalarProperty Name="ElementId" ColumnName="ElementId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IPPAProductContraindications">
+      <EntityTypeMapping TypeName="Model1.IPPAProductContraindications">
+        <MappingFragment StoreEntitySet="IPPAProductContraindications">
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="ActiveSubstanceId" ColumnName="ActiveSubstanceId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="PharmaFormId" ColumnName="PharmaFormId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
